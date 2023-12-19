@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import connectMongoDB from "./db/mongodb.js";
 import connectMYSQL from "./db/mysql.js";
+import authRouter from "./route/auth.js";
 
 const app = express();
 
@@ -18,6 +19,9 @@ app.use(
           extended: false
      })
 );
+
+// routers
+app.use("/auth", authRouter);
 
 /**
  * Connect database else shutdown the server
