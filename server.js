@@ -3,6 +3,7 @@ import express from "express";
 import connectMongoDB from "./db/mongodb.js";
 import connectMYSQL from "./db/mysql.js";
 import authRouter from "./route/auth.js";
+import gameRouter from "./route/game.js";
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(
 
 // routers
 app.use("/auth", authRouter);
+app.use("/game", gameRouter);
 
 /**
  * Connect database else shutdown the server

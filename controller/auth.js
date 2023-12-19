@@ -63,7 +63,7 @@ export async function login(req, res) {
           if (!passwordMatched) return res.status(StatusCodes.UNAUTHORIZED).send("Wrong email or password.");
 
           // Create an access token
-          const accessToken = JWT.sign({ userID: user.id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "5m" });
+          const accessToken = JWT.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "7d" });
 
           return res.status(200).json({ accessToken });
      } catch (error) {
